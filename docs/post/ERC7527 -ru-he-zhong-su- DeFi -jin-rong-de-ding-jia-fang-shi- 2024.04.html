@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+# 引言
+在当今金融市场中，拥有定价权意味着掌握了市场的话语权。">
+<meta property="og:title" content="ERC7527 如何重塑 DeFi 金融的定价方式 2024.04">
+<meta property="og:description" content="
+# 引言
+在当今金融市场中，拥有定价权意味着掌握了市场的话语权。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://Startrail1016.github.io/post/ERC7527%20-ru-he-zhong-su-%20DeFi%20-jin-rong-de-ding-jia-fang-shi-%202024.04.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>ERC7527 如何重塑 DeFi 金融的定价方式 2024.04</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">ERC7527 如何重塑 DeFi 金融的定价方式 2024.04</h1>
+<div class="title-right">
+    <a href="https://Startrail1016.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/Startrail1016/Startrail1016.github.io/issues/2" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>引言</h1>
+<p>在当今金融市场中，拥有定价权意味着掌握了市场的话语权。通过参与定价机制，市场参与者不仅能够获取丰厚的收益，还能在瞬息万变的市场中占据有利位置。在这一背景下，ERC7527(<a href="https://eips.ethereum.org/EIPS/eip-7527" rel="nofollow">https://eips.ethereum.org/EIPS/eip-7527</a>) 作为一种创新的链上资产标准，正在逐渐改变 DeFi 生态系统的游戏规则。</p>
+<p>ERC7527 的设计不仅提供了一个去中心化和自动化的定价机制，还通过其独特的功能提升了市场的透明度和流动性。传统的定价方式往往依赖于中间人或项目方的干预，而 ERC7527 则通过链上定价模型，彻底消除了这些干预，使每一个参与者都能基于市场真实的数据和算法进行独立的交易决策。与此同时，ERC7527 的出现也为 ValueFi 这一全新的金融概念奠定了基础。ValueFi 类似于 DeFi，但其重点在于通过创新的定价机制和资产管理方式，进一步推动以太坊生态系统的创新发展。通过 ERC7527 的核心机制，实现了更高效、更透明的价值交换和资产管理。</p>
+<p>本文将深入探讨 ERC7527 的核心机制及其在 DeFi 领域中的应用，并通过对比传统 AMM（Automatic Market Maker, 自动做市商）模型，揭示其在流动性管理和防范 MEV（Maximal Extractable Valu，矿工可提取价值）攻击方面的优势。同时，还将详细分析 ERC7527 的创新特性。通过这些分析，我们将展望 ERC7527 对未来金融市场的深远影响，展示这一创新协议如何为去中心化金融领域开辟全新的机遇与可能性。</p>
+<h1>ERC7527 与 恒定乘积定价</h1>
+<p>众所周知，在金融的世界里谁拥有了定价权，谁就拥有了绝对的话语权。通过参与定价来获取收益后，参与者能够有效利用定价机制，基于市场预测进行交易和投资。</p>
+<blockquote>
+<p><em>You can participate in the valuation of anything .</em></p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bb3f80bebaf24b71e98aa3634873224077f935f71fbf809ec4159b524cd62386/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b6b4c45414156302e706e67"><img src="https://camo.githubusercontent.com/bb3f80bebaf24b71e98aa3634873224077f935f71fbf809ec4159b524cd62386/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b6b4c45414156302e706e67" alt="image" data-canonical-src="https://hackmd.io/_uploads/HkkLEAAV0.png" style="max-width: 100%;"></a></p>
+<p>定价的过程也并非由某个中间人/项目方控制，而是由链上定价模型决定。<br>
+在当前的纯链上定价方案中，AMM 定价是使用最广泛且获得最多共识的方法。其中，最著名的 AMM 定价模型是由 Uniswap 首次引入的 x * y = k（<a href="https://uniswap.org/whitepaper.pdf%EF%BC%89" rel="nofollow">https://uniswap.org/whitepaper.pdf）</a> 定价曲线，熟悉 DeFi 的朋友应该都比较了解这个机制。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/599cfcf163785f1d28887b4bed2eb33462998d41cfe61594301dc5e4c765d006/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f4231445049434345302e706e67"><img src="https://camo.githubusercontent.com/599cfcf163785f1d28887b4bed2eb33462998d41cfe61594301dc5e4c765d006/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f4231445049434345302e706e67" alt="image" data-canonical-src="https://hackmd.io/_uploads/B1DPICCE0.png" style="max-width: 100%;"></a></p>
+<p>x * y = k 的代币交换方案提供了一种简单、高效且无需信任的交易机制，具有很强的共识性。但缺点就是容易受流动性不足的限制，导致 MEV 恶意攻击等问题。同时也无法保证在任意时间点都能提供足够的流动性，以满足用户的需求。尤其是在项目刚刚启动时或者在市场情绪相对冷静的时候，流动性可能会非常有限。</p>
+<p>需要注意的是，恒定乘积定价模型是基于 ERC20 代币的。在这种模型中，流动性提供者会将 ERC20 代币存入流动性池，并按照 x * y = k 的公式进行代币交换。</p>
+<p>而本文中的 ERC7527 则是基于 ERC721 的。在 ERC7527 合约中，我们维护一个价格列表（价格数组）。每当交易完成时，成交价格将被追加到价格列表的末尾。当用户发起卖出请求时，智能合约会使用价格列表中的最新价格（即最后一个价格）作为该用户的卖出报价。在实际操作中，这意味着用户的买入价格和卖出价格会呈现一定的对称性。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7581d9b3f94258640e7c2ca721cecc657adc7747d8cf3a4bfa1f21b97468513b/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b714d33353056522e706e67"><img src="https://camo.githubusercontent.com/7581d9b3f94258640e7c2ca721cecc657adc7747d8cf3a4bfa1f21b97468513b/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b714d33353056522e706e67" alt="未命名文件 (1)" data-canonical-src="https://hackmd.io/_uploads/HkqM350VR.png" style="max-width: 100%;"></a></p>
+<h1>ERC7527 的核心优势与流程解析</h1>
+<p><strong>ERC7527的优势在于资产具有充分的流动性，并且采用了去中心化的定价机制。</strong></p>
+<p>ERC7527的另一大优势在于资产<strong>具有充分的流动性</strong>。用户可以选择直接在二级市场内进行交易，如果二级市场流动性不足，用户可以通过Agency的unwrap机制销毁NFT以赎回自己的资产。此外，Agency内的资产无法被代币发行方提取，这在一定程度上避免了代币发行方的Rug行为。</p>
+<p>与上文提及的 AMM 机制相比，ERC7527 同样能维持代币的流动性，但其不同之处在于 ERC7527 的流动性是由用户自发提供的。参与 wrap 操作的用户注入的资金构成了整个 Agency 的做市资金。与需要外部流动性提供方的 AMM 机制相比，这种自发流动性避免了许多问题，例如代币发行方无需提供初始流动性，只需等待用户参与 wrap 即可。此外，这种方式不需要参与者进行复杂的LP管理。由于价格基于上述报价函数决定，大部分情况下，流动性提供方不易受到MEV攻击的影响。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/029146e54cb04c052fb8cc4c5907d205de3b67a7dbda1f7666138679ec0991a4/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f724a515833353045302e706e67"><img src="https://camo.githubusercontent.com/029146e54cb04c052fb8cc4c5907d205de3b67a7dbda1f7666138679ec0991a4/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f724a515833353045302e706e67" alt="未命名文件" data-canonical-src="https://hackmd.io/_uploads/rJQX350E0.png" style="max-width: 100%;"></a></p>
+<p>ERC7527 的核心流程如图所示，主要包含三部分：</p>
+<ol>
+<li><strong>Agency</strong>：Agency 是资产操作的核心，也是存放资产的储蓄池。在报价行为上，其内部函数会对外不断给出买入报价和卖出报价。当报价符合用户预期时，用户可以直接把相应的资产存入 Agency 资金池中。随后 Agency 调用 App NFT 中的 burn 和 mint 函数来铸造和销毁 NFT。其中，铸造（Mint）的动作即是 wrap，销毁（Burn）即是unwrap。</li>
+<li><strong>App NFT</strong>：App NFT 是一个继承 NFT 的资产类型，可以理解为 NFT 的衍生资产。不同于直接基于 ERC721 构建的“私人化”NFT，因其特殊的收藏属性而流动性不足，App 有其流动性保证。Agency 特殊的机制可以始终保持其资产的流动性，并通过用户自发提供的流动性实现去中心化的定价。</li>
+<li><strong>Factory</strong>：Factory 是对用户操作的多线封装。通过 Factory 用户可以部署 Agency 和直接部署 App NFT。</li>
+</ol>
+<h1>ERC7527 的金融场景</h1>
+<p>Agency，App NFT，Factory 这三部分是 ERC7527 核心思想的抽象。重要的是，真正能得到广泛和应用的机制和产品，底层逻辑一定是简单而合理的。用户看好即买入，看跌即抛出，这是每个人参与到任何金融活动中最简单的逻辑。在 ERC7527 中，用户有可能会参与到蕴含某个感兴趣的叙事的 Agency 中，基于对 Agency 的期望和设想，用户会不断地参与到该 Agency 对应的活动中，续写 Agency 的叙文。而这一切背后都是经济利益的驱动，Agency 的 TVL（Total Value Locked）正是该叙事的价值所在。多少用户相信这个 Agency 传达出的预期效应，以这个 Agency 为基调的叙事就会有多大的世界。</p>
+<p>就拿 Meme 来举例，一个成功的 Meme 不仅仅是一个简单的图像或文字，而是一个叙事的载体。它能够引发用户的情感共鸣，激发用户的创作欲望，并在社交媒体上迅速传播。在 ERC7527 中，Meme 可以视作一个特定的 Agency，其背后是一个充满创意和幽默的叙事体系。</p>
+<p>当用户对某个 Meme 产生兴趣并相信其未来的流行趋势时，他们可能会购买与该 Meme 相关的 App NFT。这些 NFT 不仅仅是数字资产，更是用户对这个 Meme 叙事的认同和支持。随着越来越多的用户参与到这个 Meme Agency 中，分享、创作和传播相关内容，这个 Agency 的 TVL 会不断增加，进一步增强其叙事的影响力和吸引力。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3295955917f4654a77562377f0ae8a89dc1a8c7de2cb65196a758f97358d3035/68747470733a2f2f70392d6a75656a696e2e62797465696d672e636f6d2f746f732d636e2d692d6b3375316662706663702f66616131313537336663353634356161393166376264323466363637383336637e74706c762d6b3375316662706663702d6a6a2d6d61726b3a303a303a303a303a7137352e696d616765233f773d3135333426683d36353026733d333434363926653d706e6726623d666666666666"><img src="https://camo.githubusercontent.com/3295955917f4654a77562377f0ae8a89dc1a8c7de2cb65196a758f97358d3035/68747470733a2f2f70392d6a75656a696e2e62797465696d672e636f6d2f746f732d636e2d692d6b3375316662706663702f66616131313537336663353634356161393166376264323466363637383336637e74706c762d6b3375316662706663702d6a6a2d6d61726b3a303a303a303a303a7137352e696d616765233f773d3135333426683d36353026733d333434363926653d706e6726623d666666666666" alt="image.png" data-canonical-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/faa11573fc5645aa91f7bd24f667836c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&amp;h=650&amp;s=34469&amp;e=png&amp;b=ffffff" style="max-width: 100%;"></a></p>
+<p>与此同时，开发者和创作者也可以基于这个 Meme Agency 推出更多的衍生产品和服务，比如基于 Meme 的游戏、虚拟世界中的宠物等。这些衍生产品不仅为用户提供了更多的互动和娱乐体验，也会进一步推动这个Meme Agency的价值增长。</p>
+<p>在这个过程中，经济利益的驱动是显而易见的。用户购买和交易 App NFT，参与活动和创作内容，都是基于对未来收益的预期。而 Agency 的 TVL 则直接反映了用户对这个 Meme 叙事的信任和投入程度。可以说，Agency的成功与否，取决于其能否持续吸引用户的关注和参与，以及其叙事能否不断进化和扩展。</p>
+<p>Agency 用于储备资产的池，该池子会按照其内部函数对外不断给出买入报价和卖出，当用户接受买入报价时就可以将预先规定的资产存入 Agency，此时 Agency 会调用 App 的 mint 函数为用户铸造 NFT，我们称此操作为 wrap；当用户接受 Agency 的卖出报价，Agency 会将资产发送给用户并调用 App 的 burn 函数销毁，我们称此操作为 unwrap<br>
+App 是一个继承 NFT 的资产类型，由于 Agency 的保证，该资产始终可以保持流动性<br>
+Factory 方便用户部署 Agency 和 App。用户只需要输入部分参数即可直接部署 Agency 和 App。</p>
+<h1>背后的 ValueFi 思想</h1>
+<p>ERC7527的多层次而又极其简单的生态系统设计，为 ValueFi 开辟了一条全新的道路。</p>
+<blockquote>
+<p><em>ValueFi 代表着一种全新的理念和方法论，旨在赋予价值以更广泛的定义，并将市场的主导权交还给用户。这种思想的核心理念是通过建立一个多层次而简单的生态系统，让每个人都有机会参与并创造属于自己的价值。</em></p>
+</blockquote>
+<ul>
+<li><strong>Agency</strong>：任何用户或团队都可以创建一个Agency，代表一个独特的故事或项目。</li>
+<li><strong>App NFT</strong>：用户通过购买和持有与Agency相关的App NFT，直接参与和支持这个Agency的发展。</li>
+<li><strong>Factory</strong>：为创作者和开发者提供工具和平台，帮助他们基于现有的Agency开发新的应用和服务。</li>
+</ul>
+<p>Agency是生态系统的核心，代表着各种不同的故事和项目。在这里，任何人都可以创造属于自己的Agency，展示独特的理念和愿景，让每个人都有机会参与并创造属于自己的价值。</p>
+<p>App NFT是用户参与和支持Agency发展的方式。持有与Agency相关的App NFT不仅是投资，更是积极参与到这个故事中的表现。每个App NFT代表着对特定Agency的信任和支持，是生态系统不可或缺的一部分。</p>
+<p>Factory为创作者和开发者提供了丰富的资源和支持，使他们能够在现有的Agency基础上构建新的应用和服务，创造更多的可能性和机会。Factory的存在不仅促进了生态系统的发展，也为每个参与者提供了更多的选择和机会。</p>
+<p>在这个生态系统中，市场由用户的自主性和能动性主导着。每个人都不再局限于被动地接受市场规则，而是成为了市场的塑造者和推动者。用户可以根据自己的兴趣和技能选择参与到特定的Agency中，创造属于自己的故事和价值。他们可以积极参与到App NFT的交易中，支持自己看好的项目，也可以利用 Factory 提供的工具和平台创造新的机会和服务。在这个自主性和能动性的驱动下，市场不断地创新和进化，为参与者带来了更多的机会和收益。</p>
+<blockquote>
+<p><em>To wrap your beliefs in the values you pursue.</em></p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/668ea1d2cd5684fdb3f976330ad053f203c506a4bfbabf6017a5792f778936b9/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f534a46716b4a3172522e706e67"><img src="https://camo.githubusercontent.com/668ea1d2cd5684fdb3f976330ad053f203c506a4bfbabf6017a5792f778936b9/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f534a46716b4a3172522e706e67" alt="image" data-canonical-src="https://hackmd.io/_uploads/SJFqkJ1rR.png" style="max-width: 100%;"></a></p>
+<p>与传统金融市场相比，这种市场的自主性和能动性带来了全新的体验和机会。参与者不再被动地依赖于中介和机构，而是可以直接参与到市场中，自由地发挥自己的想象力和创造力。这种市场的自主性不仅促进了市场的发展和创新，也增强了参与者的信心和价值观。正是这种自主性和能动性，使得 ERC7527 的生态系统成为了一个充满活力和希望的新型金融市场。</p>
+<h1>结语</h1>
+<p>在传统的认知里对于大多数事物，每个人的认知可能都是不尽相同的，拥有自己独立的见解和思考是进行投资与思考的前提。</p>
+<p>本文作为探索 WrapCoin 及其背后协议 ERC7527 的一叶扁舟，希望能引领读者理解WrapCoin（<a href="https://x.com/WrapCoinCN%EF%BC%89%E8%83%8C%E5%90%8E%E7%9A%84ERC7527%E6%89%80%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85%EF%BC%8C%E5%BC%80%E5%90%AF" rel="nofollow">https://x.com/WrapCoinCN）背后的ERC7527所做的事情，开启</a> ValueFi 的大门，在 web3 的世界里渐入佳境。</p>
+<p>$$
+<a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/author/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/author">@author</a>：Doris
+$$</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://Startrail1016.github.io">ST 的个人博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","Startrail1016/Startrail1016.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script>MathJax = {tex: {inlineMath: [["$", "$"]]}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</html>
