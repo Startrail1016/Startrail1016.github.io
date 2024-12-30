@@ -1,4 +1,4 @@
-# Blog Title :ST 的个人博客
+# ST 的个人博客
 ### :page_facing_up: [2](https://Startrail1016.github.io/tag.html) 
 ### :speech_balloon: 0 
 ### :hibiscus: 5438 
